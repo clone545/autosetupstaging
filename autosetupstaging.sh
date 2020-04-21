@@ -45,8 +45,8 @@ fi
 #Install Samba
 sudo apt-get install samba -y
 echo "=================================================================================="
-echo "Please provide new password for the user Pi for Samba: "
-smbpasswd -a pi
+echo "Please provide new password for the user $user for Samba: "
+smbpasswd -a $user
 
 
 ###  Append new share to Samba for finished main directory

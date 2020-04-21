@@ -15,7 +15,7 @@ downloader_script="${resources_path}/downloader.sh"
 merge_staging_script="${resources_path}/merge_staging.sh" #file to be used to merge the staging directory into main
 staging_batch_input_file_txt="${staging_path}/staging_batch.txt"
 
-#Check to see if desired path exists, and create it if it does not
+#Check to see if destination path exists, and create it if it does not
 if [ -d "$destination_path" ]
 then
 	echo "Directory $destination_path already exists." 

@@ -59,7 +59,8 @@ only guest = no
 create mask = 0777
 directory mask = 0777
 Public = no
-Guest ok = no" >> /etc/samba/smb.conf
+Guest ok = no
+" >> /etc/samba/smb.conf
 
 #Append new share to Samba for staging directory
 sudo echo "[Download Staging]
@@ -71,7 +72,8 @@ only guest = no
 create mask = 0777
 directory mask = 0777
 Public = no
-Guest ok = no" >> /etc/samba/smb.conf
+Guest ok = no
+" >> /etc/samba/smb.conf
 
 #Restart the Samba service to pick up the new config changes
 sudo systemctl restart smbd.service

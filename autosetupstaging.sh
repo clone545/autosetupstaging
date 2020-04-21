@@ -4,8 +4,8 @@ read -p "Please enter the full destination root path (subfolders will be created
 
 #destination_root is the root folder and should contain 3 sub directories, Destination, Staging, and Resources
 destination_path="${destination_root}/finished"
-staging_path="${destination_path}/staging" #The temp directory where things will be downloaded to before processing
-resources_path="${destination_path}/resources" #Resources path for files such as other scripts and input files
+staging_path="${destination_root}/staging" #The temp directory where things will be downloaded to before processing
+resources_path="${destination_root}/resources" #Resources path for files such as other scripts and input files
 
 #Files to be created and used:  
 #downloader_script runs the actual downloads, 
@@ -74,7 +74,7 @@ Public = no
 Guest ok = no" >> /etc/samba/smb.conf
 
 #Restart the Samba service to pick up the new config changes
-sudo /etc/init.d/smb reload
+sudo systemctl restart smbd.service
 
 
 #creating the merge file .sh file script

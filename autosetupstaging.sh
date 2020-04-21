@@ -87,7 +87,7 @@ DESTINATION=$destination_path # Destination can be a local folder or remote
 rsync -av --exclude '*.crdownload' \$SOURCE \$DESTINATION
 
 if [ $? -eq 0 ]; then # Only if rsync succeeded
-  find "\$SOURCE\" -mindepth 1 -delete
+  find "\$SOURCE" -mindepth 1 -delete
 else
   echo "RSYNC was not successful!"
   exit 1
@@ -118,7 +118,7 @@ fi
 rsync -av --exclude '*.crdownload' "\$SOURCE" "\$DESTINATION"
 
 if [ $? -eq 0 ]; then # Only if rsync succeeded
-  find "${SOURCE}" -mindepth 1 -delete
+  find "\$SOURCE" -mindepth 1 -delete
 else
   echo "RSYNC was not successful!"
   exit 1

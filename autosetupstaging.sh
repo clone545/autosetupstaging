@@ -50,7 +50,7 @@ smbpasswd -a pi
 
 
 ###  Append new share to Samba for finished main directory
-echo "[Finished Downloads]
+sudo echo "[Finished Downloads]
 Comment = Main directory fed by Staging on $HOSTNAME
 Path = $destination_path
 Browseable = yes
@@ -62,7 +62,7 @@ Public = no
 Guest ok = no" >> /etc/samba/smb.conf
 
 #Append new share to Samba for staging directory
-echo "[Download Staging]
+sudo echo "[Download Staging]
 Comment = Staging directory feeds into Main on $HOSTNAME
 Path = $staging_path
 Browseable = yes
@@ -74,7 +74,7 @@ Public = no
 Guest ok = no" >> /etc/samba/smb.conf
 
 #Restart the Samba service to pick up the new config changes
-/etc/init.d/smb reload
+sudo /etc/init.d/smb reload
 
 
 #creating the merge file .sh file script
@@ -129,8 +129,8 @@ download_and_merge
 chmod +x $downloader_script #make the download script executable
 
 #create cron files in /etc/cron.d to run the scripts on schedule
-echo "* 23  * * *   pi  $downloader_script" > /etc/cron.d/nightly_download
-echo "*/15 *  * * *   root    $merge_staging_script" > /etc/cron.d/merge_nightly_download
+sudo echo "* 23  * * *   pi  $downloader_script" > /etc/cron.d/nightly_download
+sudo echo "*/15 *  * * *   root    $merge_staging_script" > /etc/cron.d/merge_nightly_download
 
 echo "===================================================================================="
 echo "Add files to download to: $staging_batch_input_file_txt"
